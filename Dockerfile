@@ -1,8 +1,8 @@
-FROM openjdk:8-jdk-alpine
+FROM maven:3.5.3-jdk-8
 MAINTAINER Scott McCrory <scott@mccrory.us>
 
-VOLUME /tmp
-ARG JAR_FILE
-ADD ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+CMD ["mvn", "spring-boot:run"]
 EXPOSE 8080
