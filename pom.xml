@@ -20,11 +20,9 @@
 	</parent>
 
 	<properties>
-	
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<docker.image.prefix>sdm</docker.image.prefix> <!-- This must be lower case for Docker! -->
 		<dockerfile-maven-version>1.4.0</dockerfile-maven-version>
 	</properties>
 
@@ -103,7 +101,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>spotify/foobar</repository>
+					<repository>${project.artifactId}</repository>
 					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
